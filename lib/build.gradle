@@ -2,6 +2,7 @@ plugins {
 	id 'com.android.library'
 	id 'kotlin-android'
 	id 'kotlinx-serialization'
+	id 'maven-publish'
 }
 
 android {
@@ -80,4 +81,14 @@ dependencies {
 
 	//junit
 	testImplementation 'junit:junit:4.13.2'
+}
+
+project.afterEvaluate {
+	publishing {
+		publications {
+			release(MavenPublication) {
+				from components.release
+			}
+		}
+	}
 }
