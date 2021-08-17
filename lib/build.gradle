@@ -5,6 +5,15 @@ plugins {
 	id 'maven-publish'
 }
 
+repositories {
+	mavenCentral()
+	google()
+	maven { url "https://jitpack.io" }
+}
+
+group "net.lsafer"
+version "0.0.4"
+
 android {
 	compileSdk 31
 
@@ -81,4 +90,17 @@ dependencies {
 
 	//junit
 	testImplementation 'junit:junit:4.13.2'
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			release(MavenPublication) {
+				from components.release
+				groupId "net.lsafer"
+				artifactId "composevarious"
+				version "0.0.4"
+			}
+		}
+	}
 }
