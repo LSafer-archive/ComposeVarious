@@ -38,7 +38,7 @@ android {
 	}
 	composeOptions {
 		kotlinCompilerExtensionVersion compose_version
-		kotlinCompilerVersion '1.5.10'
+		kotlinCompilerVersion '1.5.21'
 	}
 }
 
@@ -81,14 +81,4 @@ dependencies {
 
 	//junit
 	testImplementation 'junit:junit:4.13.2'
-}
-
-project.afterEvaluate {
-	publishing {
-		publications {
-			release(MavenPublication) {
-				from components.release
-			}
-		}
-	}
 }
