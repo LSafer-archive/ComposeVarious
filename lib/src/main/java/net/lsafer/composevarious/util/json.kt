@@ -179,3 +179,6 @@ fun json(vararg pairs: Pair<String, Any?>): JSONBody =
 
 fun element(vararg pairs: Pair<String, Any?>): JsonObject =
     element(mutableMapOf(pairs = pairs))
+
+inline fun <reified T> Response<*>.receive(): T =
+    jsonFormat.decodeFromString(this.body.toString())
