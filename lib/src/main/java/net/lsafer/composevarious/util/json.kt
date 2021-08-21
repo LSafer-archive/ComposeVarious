@@ -182,3 +182,6 @@ fun element(vararg pairs: Pair<String, Any?>): JsonObject =
 
 inline fun <reified T> Response<*>.receive(): T =
     jsonFormat.decodeFromString(this.body.toString())
+
+inline fun <reified T> Request<*>.send(body: T) =
+    this.setBody(json(jsonFormat.encodeToString(body)))
